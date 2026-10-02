@@ -72,7 +72,7 @@ El proceso conservó las **122,002 observaciones originales**, generando una bas
 
 ### Resultado de la integración
 
-![Integración de datos](outputs/02_limpieza_transformacion/integracion_datos.png)
+![Dataset consolidado](1datosconsolidados.png)
 
 ---
 
