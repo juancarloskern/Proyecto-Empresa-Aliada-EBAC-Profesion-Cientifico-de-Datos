@@ -93,23 +93,23 @@ Los datos mostraron una distribución fuertemente asimétrica, con numerosas ven
 
 ### Distribución de ventas
 
-![Distribución de ventas](outputs/03_eda/distribucion_ventas_valor.png)
+![Distribución de ventas](2distribucionventas.png)
 
 ### Tendencia temporal
 
-![Tendencia de ventas](outputs/03_eda/tendencia_ventas_valor.png)
+![Tendencia temporal](3tendenciatemporal.png)
 
 ### Ventas por región
 
-![Tendencia por región](outputs/03_eda/tendencia_ventas_region.png)
+![Tendencia por región](4tendenciaporregión.png)
 
 ### Relación entre unidades y valor
 
-![Ventas unidades vs valor](outputs/03_eda/ventas_unidades_vs_valor.png)
+![Unidades vs valor](5scatterunidadesvsvalor.png)
 
 ### Correlaciones
 
-![Mapa de correlaciones](outputs/03_eda/correlaciones.png)
+![Correlaciones](6correlaciones.png)
 
 ---
 
@@ -154,11 +154,11 @@ El método del codo mostró una reducción progresiva de la inercia, mientras qu
 
 ### Método del Codo
 
-![Método del Codo](outputs/04_clustering/metodo_codo.png)
+![Método del Codo](7metododecodo.png)
 
 ### Silhouette Score
 
-![Silhouette Score](outputs/04_clustering/silhouette_score.png)
+![Silhouette Score](8silhouette.png)
 
 ---
 
@@ -184,11 +184,11 @@ Para visualizar los clusters se aplicó Principal Component Analysis (PCA).
 
 Los dos primeros componentes explicaron conjuntamente **33.42% de la variabilidad**, permitiendo observar la separación de los productos de mayor desempeño.
 
-![Clusters PCA](outputs/04_clustering/clusters_pca.png)
+![Clusters mediante PCA](9pca.png)
 
 ### Comparación de ventas por cluster
 
-![Ventas por cluster](outputs/04_clustering/ventas_valor_cluster.png)
+![Promedio de ventas por Cluster](10promedioventasenvalor.png)
 
 ---
 
@@ -209,11 +209,11 @@ El proceso incluyó:
 
 ### Serie temporal Vanish
 
-![Serie Vanish](outputs/07_prediccion/serie_vanish.png)
+![Serie temporal Vanish](11serievanish.png)
 
 ### Serie temporal Lysol
 
-![Serie Lysol](outputs/07_prediccion/serie_lysol.png)
+![Serie temporal Lysol](12serielysol.png)
 
 ---
 
@@ -232,11 +232,11 @@ Estos resultados permitieron generar pronósticos sobre el comportamiento espera
 
 ### Pronóstico Vanish
 
-![Pronóstico Vanish](outputs/07_prediccion/pronostico_vanish.png)
+![Pronóstico Vanish](13pronosticovanish.png)
 
 ### Pronóstico Lysol
 
-![Pronóstico Lysol](outputs/07_prediccion/pronostico_lysol.png)
+![Pronóstico Lysol](14pronosticolysol.png)
 
 ---
 
@@ -244,12 +244,15 @@ Estos resultados permitieron generar pronósticos sobre el comportamiento espera
 
 El análisis permitió identificar varios patrones relevantes:
 
-- Se integraron correctamente cinco fuentes de información en una base analítica de **122,002 registros**.
-- Las ventas presentan una distribución altamente asimétrica y valores extremos relevantes.
-- `TOTAL AUTOS SCANNING MEXICO` concentra aproximadamente **50% del valor de las ventas**.
-- El clustering permitió identificar un pequeño grupo de productos de desempeño excepcional.
-- Sólo **3 de los 350 productos** concentran aproximadamente **26.67% del valor total vendido**.
-- Los modelos ARIMA permitieron generar pronósticos a 12 semanas con errores MAPE cercanos al **10%**.
+- Se consolidaron correctamente **122,002 registros de ventas** procedentes de cinco fuentes.
+- El análisis exploratorio identificó distribuciones asimétricas y numerosos valores extremos.
+- **TOTAL AUTOS SCANNING MEXICO** concentra aproximadamente el **50% del valor de las ventas**.
+- Se segmentaron **350 productos** mediante K-Means.
+- La solución `k = 2` obtuvo un **Silhouette Score de 0.7069**.
+- Sólo **3 productos** conforman el cluster de desempeño excepcional.
+- Estos productos representan **0.86% del portafolio**, pero aproximadamente **26.67% del valor total vendido**.
+- Se desarrollaron modelos ARIMA para Vanish y Lysol.
+- Los pronósticos obtuvieron **MAPE de 9.46% y 10.24%**, respectivamente.
 
 ---
 
@@ -274,27 +277,46 @@ La combinación de análisis exploratorio, Machine Learning y Series de Tiempo p
 
 ---
 
-# Estructura del repositorio
+# Archivos del repositorio
 
-```text
-empresa-aliada-data-science/
-│
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── notebooks/
-│
-├── outputs/
-│   ├── 02_limpieza_transformacion/
-│   ├── 03_eda/
-│   ├── 04_clustering/
-│   └── 07_prediccion/
-│
-├── models/
-│
-└── presentation/
+## Datos
+
+- `DIM_CALENDAR (2).xlsx`
+- `DIM_CATEGORY (2).csv`
+- `DIM_PRODUCT (1).xlsx`
+- `DIM_SEGMENT (1).xlsx`
+- `FACT_SALES (1).csv`
+- `datos_consolidados.csv`
+- `productos_clusterizados.csv`
+
+## Jupyter Notebooks
+
+- `Proyecto Empresa Aliada Entregable 1.ipynb`
+- `Proyecto Empresa Aliada Entregable 2.ipynb`
+- `Proyecto Empresa Aliada Entregable 3.4.ipynb`
+- `Proyecto Empresa Aliada Entregable 6.ipynb`
+
+## SQL
+
+- `Proyecto Entregable 4_2.sql`
+
+## Modelos
+
+- `modelo_kmeans.pkl`
+- `preprocesador_clustering.pkl`
+
+El repositorio también contiene la **presentación final del Proyecto Empresa Aliada**, en la que se resumen los principales análisis y resultados obtenidos.
+
+---
+
+# Autor
+
+**Juan Carlos Kern**
+
+Proyecto desarrollado como parte de la **Profesión Científico de Datos de EBAC**.
+
+---
+
+## Nota
+
+Este repositorio corresponde a un proyecto académico desarrollado con fines educativos y de portafolio profesional.
